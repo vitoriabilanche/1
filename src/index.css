@@ -1,0 +1,125 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 95%; 
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 205 90% 45%; 
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 205 90% 45%; 
+    --radius: 0.5rem;
+
+    --markone-bg: 230 15% 10%; 
+    --markone-lines: 230 10% 30%; 
+    --markone-text: 0 0% 95%; 
+    --markone-primary-accent: 200 100% 50%; 
+  }
+
+  .dark {
+    --background: var(--markone-bg);
+    --foreground: var(--markone-text);
+    --card: 230 15% 15%; 
+    --card-foreground: var(--markone-text);
+    --popover: var(--markone-bg);
+    --popover-foreground: var(--markone-text);
+    --primary: var(--markone-primary-accent);
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 230 15% 20%;
+    --secondary-foreground: var(--markone-text);
+    --muted: 230 15% 20%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 230 15% 25%;
+    --accent-foreground: var(--markone-text);
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: var(--markone-text);
+    --border: 230 10% 30%;
+    --input: 230 15% 20%;
+    --ring: var(--markone-primary-accent);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(217, 91%, 60%) 100%);
+}
+
+.glass-card {
+  background: rgba(30, 30, 40, 0.6); /* Darker glass for better contrast */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(100, 100, 120, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25); 
+}
+
+.markone-background {
+  background-image: url('https://storage.googleapis.com/hostinger-horizons-assets-prod/d5a99b75-54f3-472a-8b42-9f8d079fc9ec/652c2e498ade22e3e581fc0341899dc8.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Optional: for parallax effect */
+  background-color: hsl(var(--markone-bg)); /* Fallback color */
+  color: hsl(var(--markone-text));
+  position: relative;
+  overflow: hidden;
+}
+
+.markone-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(10, 10, 20, 0.3); /* Dark overlay for better text readability */
+  z-index: 0;
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, 0) rotateZ(0deg);
+  }
+  50% {
+    transform: translate(-50%, -2%) rotateZ(180deg);
+  }
+  100% {
+    transform: translate(-50%, 0%) rotateZ(360deg);
+  }
+}
