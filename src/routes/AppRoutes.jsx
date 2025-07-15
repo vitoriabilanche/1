@@ -4,11 +4,6 @@ import LoginPage from '@/pages/LoginPage';
 import ForgotPasswordPage from '@/pages/ForgotPasswordPage';
 import ResetPasswordPage from '@/pages/ResetPasswordPage';
 import DashboardPage from '@/pages/DashboardPage';
-import ProjectsPage from '@/pages/ProjectsPage';
-import ProjectDetailsPage from '@/pages/ProjectDetailsPage';
-import SettingsPage from '@/pages/SettingsPage';
-import SensorsPage from '@/pages/SensorsPage';
-import SensorDetailsPage from '@/pages/SensorDetailsPage';
 import ProtectedRoute from '@/components/ProtectedRoute';
 import DashboardLayout from '@/layouts/DashboardLayout';
 import LandingPage from '@/pages/LandingPage';
@@ -21,6 +16,7 @@ const AppRoutes = () => {
       <Route path="/forgot-password" element={<ForgotPasswordPage />} />
       <Route path="/reset-password" element={<ResetPasswordPage />} />
       
+      {/* Dashboard principal - única página após login */}
       <Route path="/dashboard" element={
           <ProtectedRoute>
             <DashboardLayout>
@@ -29,47 +25,8 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
-      <Route path="/projects" element={
-          <ProtectedRoute>
-            <DashboardLayout>
-              <ProjectsPage />
-            </DashboardLayout>
-          </ProtectedRoute>
-        }
-      />
-      <Route path="/projects/:projectId" element={
-          <ProtectedRoute>
-            <DashboardLayout>
-              <ProjectDetailsPage />
-            </DashboardLayout>
-          </ProtectedRoute>
-        }
-      />
-      <Route path="/sensors" element={
-          <ProtectedRoute>
-            <DashboardLayout>
-              <SensorsPage />
-            </DashboardLayout>
-          </ProtectedRoute>
-        }
-      />
-      <Route path="/sensors/:sensorId" element={
-          <ProtectedRoute>
-            <DashboardLayout>
-              <SensorDetailsPage />
-            </DashboardLayout>
-          </ProtectedRoute>
-        }
-      />
-      <Route path="/settings" element={
-          <ProtectedRoute>
-            <DashboardLayout>
-              <SettingsPage />
-            </DashboardLayout>
-          </ProtectedRoute>
-        }
-      />
 
+      {/* Redireciona qualquer rota não encontrada para o dashboard */}
       <Route path="*" element={<Navigate to="/dashboard" replace />} />
     </Routes>
   );

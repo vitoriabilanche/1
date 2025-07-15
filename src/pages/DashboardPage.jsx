@@ -176,21 +176,7 @@ const DashboardPage = () => {
       className="p-6 space-y-6 bg-slate-900 min-h-screen text-white"
     >
       {/* Header */}
-      <div className="flex justify-between items-center">
-        <div>
-          <h1 className="text-2xl font-bold text-white">Dashboard de Sensores</h1>
-        </div>
-        <div className="flex items-center space-x-4">
-          <Button className="bg-cyan-500 hover:bg-cyan-600 text-white">
-            <Plus className="mr-2 h-4 w-4" />
-            Adicionar Sensor
-          </Button>
-          <Button variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-700">
-            <Activity className="mr-2 h-4 w-4" />
-            Atualizar
-          </Button>
-        </div>
-      </div>
+      {/* Removido header duplicado - agora está no Header component */}
 
       {/* Statistics Cards */}
       <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
